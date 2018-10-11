@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bluebgw"
+    tools:context=".testactivity">
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/yellow"
+        android:textAlignment="center"
+        android:fontFamily="@font/black_ops_one"
+        android:layout_alignParentTop="true"
+        android:text="Hello test"
+        />
+    <Button
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:text="Call and Tell a friend !!"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/winner"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/call"
+        android:text="Find the nearest Arena near me"
+        android:layout_centerHorizontal="true"
+
+        />
+    <Button
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/map"
+        android:text="Message the news to friends !!"
+        android:layout_centerHorizontal="true"
+
+        />
+
+</RelativeLayout>

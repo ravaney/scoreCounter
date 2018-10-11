@@ -14,6 +14,7 @@ public class Activity2 extends AppCompatActivity {
     private TextView Team2,Team1;
     private ImageButton t1Score, t2Score;
     private int score1,score2 = 0;
+    private int winscore, losescore;
     private String winner;
     String T1,T2;
     Boolean t = false;//to decide which team was selected
@@ -56,8 +57,6 @@ public class Activity2 extends AppCompatActivity {
                 ++score2;
                 t=true;
                 update();
-                if(score2==5){
-                    openActivity3();}
             }
         });
 
@@ -67,8 +66,7 @@ public class Activity2 extends AppCompatActivity {
                 ++score1;
                 t=false;
                 update();
-                if(score1==5){
-                openActivity3();}
+
             }
         });
 
@@ -78,7 +76,9 @@ public class Activity2 extends AppCompatActivity {
         if(t==false){
             Team1.setText(T1+" "+score1);
             if(score1==5){
-               winner=Team1.getText().toString();
+               winner=T1;
+               winscore=score1;
+               losescore=score2;
 
 
                openActivity3();
@@ -87,7 +87,9 @@ public class Activity2 extends AppCompatActivity {
         else {
             Team2.setText(T2+" "+score2);
             if(score2==5){
-                winner=Team2.getText().toString();
+                winner=T2;
+                winscore=score2;
+                losescore=score1;
 
                 openActivity3();
             }
@@ -96,18 +98,15 @@ public class Activity2 extends AppCompatActivity {
 
     private void openActivity3() {
 
-        EditText team1 = (EditText) findViewById(R.id.team1);
-        EditText team2 = (EditText) findViewById(R.id.team2);
+        String Win = winner;
 
-        String Team1 = team1.getText().toString();
-        String Team2 = team2.getText().toString();
+        Intent intent = new Intent(this,testactivity.class);
 
-        Intent intent = new Intent(this,Activity3.class);
+        intent.putExtra(EXTRA_TEXT,winner);
+        intent.putExtra(EXTRA_NUM,winscore);
+        intent.putExtra(EXTRA_NUM2,losescore);
 
-        intent.putExtra(EXTRA_NUM,score1);
-        intent.putExtra(EXTRA_NUM2,score2);
-        intent.putExtra(EXTRA_TEXT,Team1);
-        intent.putExtra(EXTRA_TEXT2,Team2);
+
 
         startActivity(intent);
 
